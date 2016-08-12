@@ -1,0 +1,30 @@
+<h1> <%= @artist.name %>, (<%=@artist.age %> years old)</h1>
+
+<%= link_to 'Back', artists_path %>
+
+<table>
+	<tr>
+		<th>id</th>
+		<th>title</th>
+		<th>duration</th>
+		<th>genre</th>
+	</tr>
+
+	<% @songs.each do |song| %>
+		<%
+	        min = song.duration / 60
+	        sec = song.duration % 60
+	        duration = '%d:%.2d' % [min, sec]
+	    %>
+		<tr>
+			<td> <%= song.id %></td>
+
+			<td> <%= song.title %></td>
+
+			<td> <%= duration %></td>
+
+			<td> <%= song.genre.name %></td>
+			<td> <%= link_to song.genre.name, :controller => :genres, :action => 'browse', :id => song.genre.id %></td>
+		</tr>
+	<% end %>
+</table>

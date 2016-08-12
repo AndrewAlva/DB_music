@@ -1,0 +1,13 @@
+<table>
+	<tr>
+		<th>id</th>
+		<th>name</th>
+	</tr>
+
+	<% object.each do |genre| %>
+		<tr>
+			<td> <%= genre.id %> </td>
+			<td> <%= link_to genre.name, :controller => :genres, :action => 'browse', :id => genre.id %> </td>
+		</tr>
+	<% end %>
+</table>

@@ -1,0 +1,9 @@
+<h1>The Music Just Turns Me On</h1>
+
+<h2>Available Artists</h2>
+
+<ul>
+	<% @artists.each do |artist| %>	
+		<li> <%= link_to artist.name, :controller => :artists, :action => 'details', :id => artist.id %> </li>
+	<% end %>
+</ul>
