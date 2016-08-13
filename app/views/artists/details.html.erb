@@ -22,8 +22,7 @@
 			<td> <%= song.title %></td>
 
 			<td> <%= duration %></td>
-
-			<td> <%= song.genre.name %></td>
+			
 			<td> <%= link_to song.genre.name, :controller => :genres, :action => 'browse', :id => song.genre.id %></td>
 		</tr>
 	<% end %>

@@ -1,3 +1,26 @@
-<!-- Curiosamente si declaro la variable aquí si funciona -->
-<!-- <%= @genre = Genre.find_by_id(params[:id]) %> -->
-<h1><%= @genre.name %></h1>
+<h1>Available <%= @genre.name %> Songs</h1>
+
+
+<table>
+	<tr>
+		<th>id</th>
+		<th>title</th>
+		<th>artist</th>
+		<th>duration</th>
+	</tr>
+	
+	<% ordered_songs = @genre.songs.sort_by{|s| [s.artist_id, s.id]} %>
+	<% ordered_songs.each do |song| %>
+		<% 
+			minutes = song.duration / 60
+			seconds = song.duration % 60
+			duration = '%d:%.2d' % [minutes, seconds]
+		%>
+		<tr>
+			<td> <%= song.id %> </td>
+			<td> <%= song.title %> </td>
+			<td> <%= song.artist.name %> </td>
+			<td> <%= duration %> </td>
+		</tr>
+	<% end %>
+</table>

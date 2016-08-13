@@ -1,0 +1,20 @@
+<%= form_for(artist) do |f| %>
+	
+	<div class="field">
+		<%= f.label :name %> <br>
+		<%= f.text_field :name %>
+	</div>
+	
+	<br><br>
+
+	<div class="field">
+		<%= f.label :age %> <br>
+		<%= f.text_field :age %>
+	</div>
+
+	<br><br>
+
+	<div class="actions">
+		<%= f.submit "Submit new artist!" %>
+	</div>
+<% end %>

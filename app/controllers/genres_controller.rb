@@ -4,9 +4,10 @@ class GenresController < ApplicationController
   end
 
   def browse
-  	if params.include? :id
-
+  	if (params[:id])
       @genre = Genre.find(params[:id])
+
+
   	else
   		redirect_to :action => 'index'
   	end
