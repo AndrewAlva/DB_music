@@ -9,9 +9,15 @@ class ArtistsController < ApplicationController
 	end
 
 	def new
-		@newartist = params[:artist]
-		Artist.new(@newartist).save
+		@artist = Artist.new(artist_params)
+		@artist.save
+
 		redirect_to :action => :index
 	end
+
+	private
+		def artist_params
+			params.require(:artist).permit(:name, :age)
+		end
 
 end
