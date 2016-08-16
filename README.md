@@ -22,26 +22,16 @@ No lo hice tan complejo como debería funcionar en realidad, limité las relacio
 
 ## Preguntas
 
-¿Es posible crear un "partial" de una tabla que dependiendo del objeto dado aumente o disminuya columnas e imprima los datos correspondientes? Por ejemplo, que con sólo un partial de tabla pueda crear una tabla de 3 columnas con ciertos parámetros en una vista y que en otra cree una tabla de 6 columnas.
+1. ¿Es posible crear un "partial" de una tabla que dependiendo del objeto dado aumente o disminuya columnas e imprima los datos correspondientes? Por ejemplo, que con sólo un partial de tabla pueda crear una tabla de 3 columnas con ciertos parámetros en una vista y que en otra cree una tabla de 6 columnas.
 "Ver las vistas de 'genres'"
+
+2. ¿Cómo se utiliza flash[:notice] para detectar inputs en blanco y regresarlos como un error?
 
 ## Troubleshooting
 
 1. ForbiddenAttributesError
 
-Estoy creando un formulario para que un usuario pueda subir artistas desde su browser, pero cuando lo va a guardar marca un error de "atributos prohibidos", y regresa un "permitted: false". Ya verifiqué que el valor de los atributos sea el data type correcto, en el caso de ":name" es String y en ":age" es Fixnum (o sea integer), y en el controlador estoy utilizando "Strong Params" así:
-
-	def new
-		@artist = Artist.new(artist_params)
-		@artist.save
-
-		redirect_to :action => :index
-	end
-
-	private
-		def artist_params
-			params.require(:artist).permit(:name, :age)
-		end
+Problema resuelto, al parecer sólo había que detener el servidor y volverlo a correr; además del uso de Strong Params.
 
 
 En la carpeta "SOS" en el 'root' dejo los screenshot de los errores que regresa Rails. Puedes correr el seed para llenar los modelos.

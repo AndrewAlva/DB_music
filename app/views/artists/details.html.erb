@@ -1,6 +1,19 @@
+<p id="notice"> <%= notice %> </p>
+
 <h1> <%= @artist.name %>, (<%=@artist.age %> years old)</h1>
 
 <%= link_to 'Back', artists_path %>
+<br>
+<%= form_tag :action => :addsong, :id => @artist.id do %>
+    Title: <%= text_field :song, :title %> <br>
+    Duration (seconds): <%= text_field :song, :duration, :size => 3 %> <br>
+    
+    <% @genres.each do |genre| %>
+        <%= radio_button :song, :genre_id, genre.id %><%= genre.name %> <br>
+    <% end %>
+
+    <%= submit_tag 'Add song' %>
+<% end %>
 
 <table>
 	<tr>

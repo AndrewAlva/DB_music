@@ -19,7 +19,7 @@
 		<tr>
 			<td> <%= song.id %> </td>
 			<td> <%= song.title %> </td>
-			<td> <%= song.artist.name %> </td>
+			<td> <%= link_to song.artist.name, :controller => :artists, :action => 'details', :id => song.artist.id %></td>
 			<td> <%= duration %> </td>
 		</tr>
 	<% end %>
