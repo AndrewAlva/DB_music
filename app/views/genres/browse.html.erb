@@ -1,5 +1,15 @@
 <h1>Available <%= @genre.name %> Songs</h1>
 
+<h2> Add new songs to this genre</h2>
+<%= form_tag :action => :add_song_to_genre, :id => @genre.id do %>
+	Title: <%= text_field :song, :title %> <br>
+	Artist: <br>
+	<% @artists.each do |artist| %>
+		<%= radio_button :song, :artist_id, artist.id %> <%= artist.name %> <br>
+	<% end %>
+	Duration (in seconds): <%= text_field :song, :duration %>
+	<%= submit_tag 'Add new song' %>
+<% end %>
 
 <table>
 	<tr>
@@ -24,3 +34,5 @@
 		</tr>
 	<% end %>
 </table>
+
+<%= link_to 'Back', genres_path %>

@@ -31,7 +31,7 @@ No lo hice tan complejo como debería funcionar en realidad, limité las relacio
 
 1. ForbiddenAttributesError
 
-Problema resuelto, al parecer sólo había que detener el servidor y volverlo a correr; además del uso de Strong Params.
+Problema resuelto, al parecer sólo había que utilizar un método privado (Strong Params) para traer los parámetros del nuevo objeto creado, detener el servidor y volverlo a correr.
 
 
 En la carpeta "SOS" en el 'root' dejo los screenshot de los errores que regresa Rails. Puedes correr el seed para llenar los modelos.

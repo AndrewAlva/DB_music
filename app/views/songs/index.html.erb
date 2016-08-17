@@ -1,0 +1,4 @@
+<h1>Available Songs</h1>
+
+<% ordered_songs = @songs.sort_by{|s| [s.artist_id, s.id]} %>
+<%= render 'table', object: ordered_songs %>

@@ -1,0 +1,25 @@
+<table>
+	<tr>
+		<th>id</th>
+		<th>Title</th>
+		<th>Artist</th>
+		<th>Genre</th>
+		<th>Duration</th>
+		<th></th>
+	</tr>
+
+	<% object.each do |song| %>
+		<tr>
+			<td><%= song.id %></td>
+			<td><%= song.title %></td>
+			<td> <%= link_to song.artist.name, :controller => :artists, :action => 'details', :id => song.artist.id %></td>
+			<td> <%= link_to song.genre.name, :controller => :genres, :action => 'browse', :id => song.genre.id %></td>
+			<%  min = song.duration / 60
+				sec = song.duration % 60
+				
+				duration = '%d:%.2d' % [min, sec] %>
+			<td><%= duration %></td>
+			<td><%= link_to 'Edit', edit_song_path(song) %></td>
+		</tr>
+	<% end %>
+</table>

@@ -21,6 +21,7 @@
 		<th>title</th>
 		<th>duration</th>
 		<th>genre</th>
+		<th></th>
 	</tr>
 
 	<% @songs.each do |song| %>
@@ -37,6 +38,8 @@
 			<td> <%= duration %></td>
 			
 			<td> <%= link_to song.genre.name, :controller => :genres, :action => 'browse', :id => song.genre.id %></td>
+
+			<td><td><%= link_to 'Edit', edit_song_path(song) %></td></td>
 		</tr>
 	<% end %>
 </table>
